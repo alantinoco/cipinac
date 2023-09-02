@@ -4,6 +4,8 @@ class Empresa(models.Model):
     razao_social = models.CharField(max_length=100)
     nome_fantasia = models.CharField(max_length=100)
     cnpj = models.CharField(max_length=14, unique=True)
+    email = models.EmailField(max_length=50, null=True, blank=True, unique=True)
+    telefone = models.CharField(max_length=11, null=True, blank=True)
     representante_legal = models.CharField(max_length=100)
     cpf_representante_legal = models.CharField(max_length=11)
 
@@ -77,6 +79,12 @@ class Candidato(models.Model):
     telefone = models.CharField(max_length=11)
     telefone2 = models.CharField(max_length=11, null=True, blank=True)
     email = models.EmailField(max_length=50, null=True, blank=True, unique=True)
+
+    # Documentos adicionais
+    arquivo1 = models.FileField(upload_to ='arquivos/', null=True, blank=True)
+    arquivo2 = models.FileField(upload_to ='arquivos/', null=True, blank=True)
+    arquivo3 = models.FileField(upload_to ='arquivos/', null=True, blank=True)
+    arquivo4 = models.FileField(upload_to ='arquivos/', null=True, blank=True)
 
     def __str__(self):
         return f"{self.nome} - {self.cpf}"

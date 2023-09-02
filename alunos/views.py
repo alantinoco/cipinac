@@ -32,6 +32,23 @@ def dashboard(request):
 
 
 @login_required(login_url='index')
+def add_empresa(request):
+    form = EmpresaForm()
+
+    context = {
+        'form': form,
+    }
+
+    if request.method == "POST":
+        form = EmpresaForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('index')
+    return render(request, 'add-empresa.html', context)
+
+
+
+@login_required(login_url='index')
 def add_candidato(request):
     form = CandidatoForm()
 

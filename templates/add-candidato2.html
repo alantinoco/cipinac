@@ -14,13 +14,13 @@
 
 {% block content %}
 
-                    <div class="col-sm-12 col-xl-6">
+                    <div class="container-fluid pt-4 px-4">
                         <div class="bg-light rounded h-100 p-4">
-                            <h3 class="mb-4">Cadastro de candidato</h3>
+                            <h3 class="text-center">Cadastro de candidato</h3>
                             <form action="." method="post" enctype="multipart/form-data">{% csrf_token %}
 
                                 <div class="form-floating mb-3">
-                                    {% render_field form.nome class="form-control"  type="file" %}
+                                    {% render_field form.foto class="form-control"  type="file" %}
                                     <label for="floatingInput">Foto do candidato</label>
                                 </div>
 
@@ -103,6 +103,26 @@
                                 <div class="form-floating mb-3">
                                     {% render_field form.telefone2 class="form-control"  type="text" %}
                                     <label for="floatingInput">Segundo Telefone</label>
+                                </div>
+
+                                <div class="form-floating mb-3">
+                                    {% render_field form.arquivo1 class="form-control"  type="file" %}
+                                    <label for="floatingInput">Arquivo adicional</label>
+                                </div>
+
+                                <div class="form-floating mb-3">
+                                    {% render_field form.arquivo2 class="form-control"  type="file" %}
+                                    <label for="floatingInput">Arquivo adicional</label>
+                                </div>
+
+                                <div class="form-floating mb-3">
+                                    {% render_field form.arquivo3 class="form-control"  type="file" %}
+                                    <label for="floatingInput">Arquivo adicional</label>
+                                </div>
+
+                                <div class="form-floating mb-3">
+                                    {% render_field form.arquivo4 class="form-control"  type="file" %}
+                                    <label for="floatingInput">Arquivo adicional</label>
                                 </div>
 
                                 <button type="submit" class="btn btn-primary">Cadastrar</button>
