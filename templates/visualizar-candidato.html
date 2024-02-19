@@ -1,0 +1,104 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% load widget_tweaks %}
+
+
+{% block title %}
+    CIPINAC - Candidato
+{% endblock %}
+
+
+{% block content %}
+
+
+
+
+    <div class="container-fluid pt-4 px-4 text-center">
+                        <div class="bg-light rounded h-100 p-4">
+                            </br>
+                            {% if candidato.foto %}
+                            <img src="{{candidato.foto.url}}">
+                            {% endif %}
+                            </br>
+                            <h4>{{candidato.nome}}</h4>
+                            </br>
+                            <p><b>Matrícula:</b> {{candidato.matricula}}</p>
+                            <p><b>CPF:</b> {{candidato.cpf}}</p>
+                            <p><b>Sexo:</b> {{candidato.sexo}}</p>
+                            <p><b>Nascimento:</b> {{candidato.data_nasc}}</p>
+                            <p><b>Nacionalidade:</b> {{candidato.nacionalidade}}</p>
+                            <p><b>Identidade:</b> {{candidato.identidade}} - {{candidato.orgao_emissor}}</p>
+                            <p><b>Emissão:</b> {{candidato.data_emissao}}</p>
+                            <p><b>Empresa:</b> {{candidato.empresa}}</p>
+                            <p><b>Endereço:</b> {{candidato.logradouro}},{{candidato.numero_casa}}</p>
+                            <p><b>Complemento:</b> {{candidato.complemento}}</p>
+                            <p><b>Cidade:</b> {{candidato.cidade}} - {{candidato.estado}}</p>
+                            <p><b>Telefone:</b> {{candidato.telefone}}</p>
+                            <p><b>Telefone 2:</b> {{candidato.telefone2}}</p>
+                            <p><b>Email:</b> {{candidato.email}}</p>
+
+                            {% if candidato.atestado_acuidade_visual %}
+                            <a href="{{candidato.atestado_acuidade_visual.url}}"><i class="far far fa-file-pdf"></i><b> Atestado de acuidade visual</b></a>
+                            </br>
+                            {% endif %}
+
+                            {% if candidato.ctps_id %}
+                            <a href="{{candidato.ctps_id.url}}"><i class="far far fa-file-pdf"></i><b> Carteira de trabalho</b></a>
+                            </br>
+                            {% endif %}
+
+                            {% if candidato.ctps_contrato_de_trabalho %}
+                            <a href="{{candidato.ctps_contrato_de_trabalho.url}}"><i class="far far fa-file-pdf"></i><b> Carteira de trabalho (Contrato)</b></a>
+                            </br>
+                            {% endif %}
+
+                            {% if candidato.comprovante_escolaridade %}
+                            <a href="{{candidato.comprovante_escolaridade.url}}"><i class="far far fa-file-pdf"></i><b> Comprovante de Escolaridade</b></a>
+                            </br>
+                            {% endif %}
+
+                            {% if candidato.comprovante_residencia %}
+                            <a href="{{candidato.comprovante_residencia.url}}"><i class="far far fa-file-pdf"></i><b> Comprovante de Residência</b></a>
+                            </br>
+                            {% endif %}
+
+                            {% if candidato.copia_identidade %}
+                            <a href="{{candidato.copia_identidade.url}}"><i class="far far fa-file-pdf"></i><b> Cópia da identidade</b></a>
+                            </br>
+                            {% endif %}
+
+                            {% if candidato.copia_cpf %}
+                            <a href="{{candidato.copia_cpf.url}}"><i class="far far fa-file-pdf"></i><b> Cópia do CPF</b></a>
+                            </br>
+                            {% endif %}
+
+                            {% if candidato.termo_compromisso %}
+                            <a href="{{candidato.termo_compromisso.url}}"><i class="far far fa-file-pdf"></i><b> Termo de compromisso</b></a>
+                            </br>
+                            {% endif %}
+
+                            {% if candidato.codigo_conduta %}
+                            <a href="{{candidato.codigo_conduta.url}}"><i class="far far fa-file-pdf"></i><b> Código de conduta</b></a>
+                            </br>
+                            {% endif %}
+
+                            {% if candidato.declaracao_participacao %}
+                            <a href="{{candidato.declaracao_participacao.url}}"><i class="far far fa-file-pdf"></i><b> Declaração de participação</b></a>
+                            </br>
+                            {% endif %}
+
+                            {% if candidato.instrucao_candidato %}
+                            <a href="{{candidato.instrucao_candidato.url}}"><i class="far far fa-file-pdf"></i><b> Instrução do candidato</b></a>
+                            </br>
+                            {% endif %}
+
+                            {% if candidato.registro_solicitacao_exame %}
+                            <a href="{{candidato.registro_solicitacao_exame.url}}"><i class="far far fa-file-pdf"></i><b> Registro de solicitação do exame</b></a>
+                            </br>
+                            {% endif %}
+
+                    </div>
+    </div>
+{% endblock %}

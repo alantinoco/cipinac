@@ -56,6 +56,15 @@
                             <h4></h4>
                         </div>
                         <form action="{% url 'index' %}" method="POST"> {% csrf_token %}
+
+                        {% if messages %}
+                            {% for message in messages %}
+                                <div class="alert alert-danger" role="alert">
+                                    {{message}}
+                                </div>
+                            {% endfor %}
+                        {% endif %}
+
                         <div class="form-floating mb-3">
                             <input type="text" class="form-control" id="floatingInput" placeholder="Nome de usuário" name="username">
                             <label for="floatingInput">Nome de usuário</label>

@@ -23,8 +23,12 @@
 
 
     <!-- Libraries Stylesheet -->
-    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-    <link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
+
+    <!--
+    <link href="{% static 'assets/lib/owlcarousel/assets/owl.carousel.min.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css' %}" rel="stylesheet" />
+    -->
+
 
     <!-- Customized Bootstrap Stylesheet -->
     <link href="{% static 'assets/css/bootstrap.min.css' %}" rel="stylesheet">
@@ -47,32 +51,50 @@
         <!-- Sidebar Start -->
         <div class="sidebar pe-4 pb-3">
             <nav class="navbar bg-light navbar-light">
-                <a href="index.html" class="navbar-brand mx-4 mb-3">
+                <a href="{% url 'index' %}" class="navbar-brand mx-4 mb-3">
                     <h3 class="text-primary"><i class="fa fa-graduation-cap"></i>CIPINAC</h3>
                 </a>
 
                 <div class="navbar-nav w-100">
+                    <a href="{% url 'dashboard' %}" class="nav-item nav-link active"><i class="fa fa-chart-bar me-2"></i>Dashboard</a>
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-user me-2"></i>Candidatos</a>
                         <div class="dropdown-menu bg-transparent border-0">
                             <a href="{% url 'add_candidato' %}" class="dropdown-item">Cadastrar</a>
-                            <a href="typography.html" class="dropdown-item">Visualizar</a>
-                            <a href="element.html" class="dropdown-item">Deletar</a>
+                            <a href="{% url 'view_candidato' %}" class="dropdown-item">Visualizar</a>
                         </div>
                     </div>
                     <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="far fa-building me-2"></i>Escolas</a>
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="far fa-building me-2"></i>Empresas</a>
                         <div class="dropdown-menu bg-transparent border-0">
-                            <a href="{% url 'add_candidato' %}" class="dropdown-item">Cadastrar</a>
-                            <a href="signup.html" class="dropdown-item">Visualizar</a>
-                            <a href="404.html" class="dropdown-item">Deletar</a>
+                            <a href="{% url 'add_empresa' %}" class="dropdown-item">Cadastrar</a>
+                            <a href="{% url 'view_empresa' %}" class="dropdown-item">Visualizar</a>
                         </div>
                     <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="far fa-file-alt me-2"></i>Provas</a>
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="far fas fa-book-reader me-2"></i>Turmas</a>
                         <div class="dropdown-menu bg-transparent border-0">
-                            <a href="signin.html" class="dropdown-item">Adicionar questão</a>
-                            <a href="signup.html" class="dropdown-item">Editar questão</a>
-                            <a href="404.html" class="dropdown-item">Gerar prova</a>
+                            <a href="{% url 'add_turma' %}" class="dropdown-item">Cadastrar</a>
+                            <a href="{% url 'view_turma' %}" class="dropdown-item">Visualizar</a>
+                        </div>
+                    </div>
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="far fa-file-alt me-2"></i>Questões</a>
+                        <div class="dropdown-menu bg-transparent border-0">
+                            <a href="{% url 'add_questao' %}" class="dropdown-item">Cadastrar</a>
+                            <a href="{% url 'view_questao' %}" class="dropdown-item">Visualizar</a>
+                        </div>
+                    </div>
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="far far fa-handshake me-2"></i>Fale conosco</a>
+                        <div class="dropdown-menu bg-transparent border-0">
+                            <a href="{% url 'view_faleconosco' %}" class="dropdown-item">Solicitações</a>
+                        </div>
+                    </div>
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="far far fas fa-user-graduate me-2"></i>Certificados</a>
+                        <div class="dropdown-menu bg-transparent border-0">
+                            <a href="{% url 'add_certificado' %}" class="dropdown-item">Cadastrar</a>
+                            <a href="{% url 'view_certificado' %}" class="dropdown-item">Visualizar</a>
                         </div>
                     </div>
                 </div>
@@ -92,7 +114,9 @@
                     <i class="fa fa-bars"></i>
                 </a>
                 <form class="d-none d-md-flex ms-4">
+                    <!--
                     <input class="form-control border-0" type="search" placeholder="Buscar por CPF ...">
+                    -->
                 </form>
                 <div class="navbar-nav align-items-center ms-auto">
                     <div class="nav-item dropdown">
@@ -128,12 +152,6 @@
                     <div class="row">
                         <div class="col-12 col-sm-6 text-center text-sm-start">
                             ® <a href="#">CIPINAC</a>, Todos os direitos reservados.
-                        </div>
-                        <div class="col-12 col-sm-6 text-center text-sm-end">
-                            <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
-                            Designed By <a href="https://htmlcodex.com">HTML Codex</a>
-                        </br>
-                        Distributed By <a class="border-bottom" href="https://themewagon.com" target="_blank">ThemeWagon</a>
                         </div>
                     </div>
                 </div>

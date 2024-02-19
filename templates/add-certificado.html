@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% load widget_tweaks %}
+
+
+{% block title %}
+    CIPINAC - Cadastrar Certificado
+{% endblock %}
+
+
+{% block content %}
+
+                    <div class="container-fluid pt-4 px-4">
+                        <div class="bg-light rounded h-100 p-4">
+                            <h3 class="text-center">Cadastro de certificado</h3>
+                            <form action="." method="post" enctype="multipart/form-data">{% csrf_token %}
+                                <div class="form-floating mb-3">
+                                    {% render_field form.nome class="form-control"  type="text" %}
+                                    <label for="floatingInput">Nome do candidato</label>
+                                </div>
+
+                                <div class="form-floating mb-3">
+                                    {% render_field form.CPF class="form-control"  type="text" %}
+                                    <label for="floatingInput">CPF</label>
+                                </div>
+
+                                <div class="form-floating mb-3">
+                                    {% render_field form.titulo_do_certificado class="form-control"  type="text" %}
+                                    <label for="floatingInput">Titulo do certificado</label>
+                                </div>
+
+                                <div class="form-floating mb-3">
+                                    {% render_field form.data class="form-control"  type="date" %}
+                                    <label for="floatingInput">Data de emissão</label>
+                                </div>
+
+                                <div class="form-floating mb-3">
+                                    {% render_field form.validade class="form-control"  type="date" %}
+                                    <label for="floatingInput">Validade</label>
+                                </div>
+
+                                <!--
+                                <div class="mb-3">
+                                    {% render_field form.certificado class=""  type="file" %}
+                                    <label for="floatingInput">(Certificado)</label>
+                                </div>
+                                -->
+
+
+
+                                <button type="submit" class="btn btn-primary">Cadastrar</button>
+                            </form>
+                        </div>
+                    </div>
+
+{% endblock %}

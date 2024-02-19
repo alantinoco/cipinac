@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+
+{% load widget_tweaks %}
+
+{% load static %}
+
+
+
+{% block title %}
+    CIPINAC - Turma
+{% endblock %}
+
+
+{% block content %}
+
+
+                    <div class="container-fluid pt-4 px-4">
+                        <div class="bg-light rounded h-100 p-4">
+                            <form method="get">
+                                {{filter.form}}
+                                <input type="submit"  class="btn btn-primary" value="Buscar">
+                            </form></br>
+                            <div class="table-responsive">
+                                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nome da Turma</th>
+                            <th>Certificação</th>
+                            <th>Empresa</th>
+                            <th>Data da Prova</th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for turma in filter.qs %}
+                        <tr>
+                            <td>
+                                <a href="">
+                                    {{turma.id}}
+                                </a>
+                            </td>
+                                <td>
+                                    <a href="">
+                                        {{turma.nome_da_turma}}
+                                    </a>
+                                </td>
+                            <td>{{turma.titulo_do_certificado}}</td>
+                            <td>{{turma.empresa}}</td>
+                            <td>{{turma.data_da_prova}}</td>
+                            <td>
+                                <a href="">
+                                    <input type="submit" class="btn btn-outline-success btn-sm" value="Visualizar">
+                                </a>
+                            </td>
+                            <td>
+                                <a href="">
+                                    <input type="submit" class="btn btn-outline-primary btn-sm" value="Editar">
+                                </a>
+                            </td>
+                            <td>
+                                <a href="">
+                                    <input type="submit" class="btn btn-outline-danger btn-sm" value="Deletar">
+                                </a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                         </div>
+                     </div>
+                 </div>
+
+
+{% endblock %}

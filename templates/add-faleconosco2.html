@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% load widget_tweaks %}
+
+
+{% block title %}
+    Fale conosco
+{% endblock %}
+
+
+{% block content %}
+
+                    <div class="container-fluid pt-4 px-4">
+                        <div class="bg-light rounded h-100 p-4">
+                            <h3 class="text-center">Solicitação</h3>
+                            <form action="." method="post" enctype="multipart/form-data">{% csrf_token %}
+
+
+                                <div class="form-floating mb-3">
+                                    {% render_field form.tipo class="form-control"  type="text" %}
+                                    <label for="floatingInput">Tipo de solicitação</label>
+                                </div>
+
+                                <div class="form-floating mb-3">
+                                    {% render_field form.titulo class="form-control"  type="text" %}
+                                    <label for="floatingInput">Título</label>
+                                </div>
+
+                                <div class="form-floating mb-3">
+                                    {% render_field form.protocolo class="form-control"  type="text" %}
+                                    <label for="floatingInput">Protocolo (Inserir manualmente e responder o cliente por email com o número)</label>
+                                </div>
+
+                                <div class="form-floating mb-3">
+                                    {% render_field form.email class="form-control"  type="email" %}
+                                    <label for="floatingInput">E-mail</label>
+                                </div>
+
+                                <div class="form-floating mb-3">
+                                    {% render_field form.telefone class="form-control"  type="text" %}
+                                    <label for="floatingInput">Telefone</label>
+                                </div>
+
+                                <div class="form-floating mb-3">
+                                    {% render_field form.texto class="form-control"  type="textarea" %}
+                                    <label for="floatingInput">Solicitação do cliente</label>
+                                </div>
+
+                                <div class="form-floating mb-3">
+                                    {% render_field form.anotacoes_cipinac class="form-control"  type="textarea" %}
+                                    <label for="floatingInput">Anotações do atendimento</label>
+                                </div>
+
+                                <button type="submit" class="btn btn-primary">Atualizar</button>
+                            </form>
+                        </div>
+                    </div>
+
+{% endblock %}

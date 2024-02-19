@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+
+{% load widget_tweaks %}
+
+{% load static %}
+
+
+
+{% block title %}
+    CIPINAC - Candidato
+{% endblock %}
+
+
+{% block content %}
+
+
+                    <div class="container-fluid pt-4 px-4">
+                        <div class="bg-light rounded h-100 p-4">
+                            <form method="get">
+                                {{filter.form}}
+                                <input type="submit"  class="btn btn-primary" value="Buscar">
+                            </form></br>
+                        <div class="table-responsive">
+
+                    <table class="table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Enunciado</th>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for questao in filter.qs %}
+                        <tr>
+                            <td>
+                                <a href="">
+                                    {{questao.id}}
+                                </a>
+                            </td>
+                                <td>
+                                    <a href="">
+                                        {{questao.enunciado}}
+                                    </a>
+                                </td>
+                            <td>
+                                <a href="{% url 'update_questao' questao.id %}">
+                                    <input type="submit" class="btn btn-outline-primary btn-sm" value="Editar">
+                                </a>
+                            </td>
+                            <td>
+                                <a href="{% url 'delete_questao' questao.id %}">
+                                    <input type="submit" class="btn btn-outline-danger btn-sm" value="Deletar">
+                                </a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                         </div>
+                     </div>
+                 </div>
+
+
+{% endblock %}

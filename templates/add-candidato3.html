@@ -1,0 +1,200 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% load widget_tweaks %}
+
+
+{% block title %}
+    Cadastrar Candidato
+{% endblock %}
+
+
+{% block content %}
+
+
+
+
+    <div class="container-fluid pt-4 px-4">
+                        <div class="bg-light rounded h-100 p-4">
+                            <h3 class="text-center">Cadastro de candidato</h3>
+                            <form action="." method="post" enctype="multipart/form-data">{% csrf_token %}
+
+                            {% if messages %}
+                            {% for message in messages %}
+                                <div class="alert alert-primary" role="alert">
+                                    {{message}}
+                                </div>
+                            {% endfor %}
+                            {% endif %}
+
+
+                                <div class="form-group">
+
+                                <!-- Dados Pessoais -->
+
+                                <br/>
+
+
+                                <div class="form-floating mb-3">
+                                    {% render_field form.nome class="form-control"  type="text" %}
+                                    <label for="floatingInput">Nome</label>
+                                </div>
+
+                                <div class="form-floating mb-3">
+                                    {% render_field form.email class="form-control"  type="email" %}
+                                    <label for="floatingInput">Email</label>
+                                </div>
+
+                                <div class="form-floating mb-3">
+                                    {% render_field form.telefone class="form-control"  type="text" %}
+                                    <label for="floatingInput">Telefone</label>
+                                </div>
+
+                                <div class="form-floating mb-3">
+                                    {% render_field form.telefone2 class="form-control"  type="text" %}
+                                    <label for="floatingInput">Segundo Telefone</label>
+                                </div>
+
+
+
+                                <div class="form-floating mb-3">
+                                    {% render_field form.cpf class="form-control"  type="text" %}
+                                    <label for="floatingInput">CPF</label>
+                                </div>
+
+                                <div class="form-floating mb-3">
+                                    {% render_field form.identidade class="form-control"  type="text" %}
+                                    <label for="floatingInput">Identidade</label>
+                                </div>
+
+                                <div class="form-floating mb-3">
+                                    {% render_field form.orgao_emissor class="form-control"  type="text" %}
+                                    <label for="floatingInput">Orgão Emissor</label>
+                                </div>
+
+                                <div class="form-floating mb-3">
+                                    {% render_field form.data_emissao class="form-control"  type="date" %}
+                                    <label for="floatingInput">Data de emissão</label>
+                                </div>
+
+                                <div class="form-floating mb-3">
+                                    {% render_field form.data_nasc class="form-control"  type="date" %}
+                                    <label for="floatingInput">Data de Nascimento</label>
+                                </div>
+
+                                <div class="form-floating mb-3">
+                                    {% render_field form.nacionalidade class="form-control"  type="text" %}
+                                    <label for="floatingInput">Nacionalidade</label>
+                                </div>
+
+                                <div class="form-floating mb-3">
+                                    {% render_field form.sexo class="form-control"  type="text" %}
+                                    <label for="floatingInput">Sexo</label>
+                                </div>
+
+                                <div class="form-floating mb-3">
+                                    {% render_field form.empresa class="form-control"  type="text" %}
+                                    <label for="floatingInput">Empresa</label>
+                                </div>
+
+                                <!-- Endereço -->
+
+                                <div class="form-floating mb-3">
+                                    {% render_field form.logradouro class="form-control"  type="text" %}
+                                    <label for="floatingInput">Logradouro</label>
+                                </div>
+
+                                <div class="form-floating mb-3">
+                                    {% render_field form.numero_casa class="form-control"  type="text" %}
+                                    <label for="floatingInput">Número</label>
+                                </div>
+
+                                <div class="form-floating mb-3">
+                                    {% render_field form.complemento class="form-control"  type="text" %}
+                                    <label for="floatingInput">Complemento</label>
+                                </div>
+
+                                <div class="form-floating mb-3">
+                                    {% render_field form.cidade class="form-control"  type="text" %}
+                                    <label for="floatingInput">Cidade</label>
+                                </div>
+
+                                <div class="form-floating mb-3">
+                                    {% render_field form.estado class="form-control"  type="text" %}
+                                    <label for="floatingInput">Estado</label>
+                                </div>
+
+                                <div class="mb-3">
+                                    {% render_field form.foto class=""  type="file" %}
+                                    <label for="floatingInput">(Foto do candidato)</label>
+                                </div>
+
+
+                                <div class="mb-3">
+                                    {% render_field form.atestado_acuidade_visual  class=""  type="file" %}
+                                    <label for="floatingInput">(Atestado de acuidade visual)</label>
+                                </div>
+
+                                <div class="mb-3">
+                                    {% render_field form.ctps_id  class=""  type="file" %}
+                                    <label for="floatingInput">(CTPS - Folha de identificação)</label>
+                                </div>
+
+                                <div class="mb-3">
+                                    {% render_field form.ctps_contrato_de_trabalho   class=""  type="file" %}
+                                    <label for="floatingInput">(CTPS - Folha do contrato de trabalho)</label>
+                                </div>
+
+                                <div class="mb-3">
+                                    {% render_field form.comprovante_escolaridade    class=""  type="file" %}
+                                    <label for="floatingInput">(Comprovante de escolaridade)</label>
+                                </div>
+
+                                <div class="mb-3">
+                                    {% render_field form.comprovante_residencia     class=""  type="file" %}
+                                    <label for="floatingInput">(Comprovante de residência)</label>
+                                </div>
+
+                                <div class="mb-3">
+                                    {% render_field form.copia_identidade      class=""  type="file" %}
+                                    <label for="floatingInput">(Cópia da identidade)</label>
+                                </div>
+
+                                <div class="mb-3">
+                                    {% render_field form.copia_cpf      class=""  type="file" %}
+                                    <label for="floatingInput">(Cópia do CPF)</label>
+                                </div>
+
+                                <div class="mb-3">
+                                    {% render_field form.termo_compromisso      class=""  type="file" %}
+                                    <label for="floatingInput">(Termo de compromisso)</label>
+                                </div>
+
+                                <div class="mb-3">
+                                    {% render_field form.codigo_conduta      class=""  type="file" %}
+                                    <label for="floatingInput">(Código de conduta)</label>
+                                </div>
+
+                                <div class="mb-3">
+                                    {% render_field form.declaracao_participacao      class=""  type="file" %}
+                                    <label for="floatingInput">(Declaração de participação)</label>
+                                </div>
+
+                                <div class="mb-3">
+                                    {% render_field form.instrucao_candidato      class=""  type="file" %}
+                                    <label for="floatingInput">(Instrução do candidato)</label>
+                                </div>
+
+                                <div class="mb-3">
+                                    {% render_field form.registro_solicitacao_exame      class=""  type="file" %}
+                                    <label for="floatingInput">(Registro de solicitação do exame)</label>
+                                </div>
+
+                                <button type="submit" class="btn btn-primary">Salvar</button>
+                                </div>
+                            </form>
+                            </br>
+                        </div>
+                    </div>
+{% endblock %}
