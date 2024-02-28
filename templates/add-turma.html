@@ -46,6 +46,11 @@
                                     <label for="floatingInput">Título do Certificado</label>
                                 </div>
 
+                                 <div class="form-floating mb-3">
+                                    {% render_field form.examinador class="form-control"  type="text" %}
+                                    <label for="floatingInput">Examinador</label>
+                                </div>
+
                                 <div class="form-floating mb-3">
                                     {% render_field form.empresa class="form-control"  type="text" %}
                                     <label for="floatingInput">Empresa</label>
@@ -54,6 +59,11 @@
                                 <div class="form-floating mb-3">
                                     {% render_field form.data_da_prova class="form-control"  type="date" %}
                                     <label for="floatingInput">Data da Prova</label>
+                                </div>
+
+                                <div class="form-floating mb-3">
+                                    {% render_field form.hora class="form-control"  type="date" %}
+                                    <label for="floatingInput">Horário</label>
                                 </div>
 
                                 <button type="submit" class="btn btn-primary">Salvar</button>

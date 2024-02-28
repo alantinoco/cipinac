@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% load widget_tweaks %}
+
+
+{% block title %}
+    CIPINAC - Examinador
+{% endblock %}
+
+
+{% block content %}
+                    <div class="container-fluid pt-4 px-4 text-center">
+                        <div class="bg-light rounded h-100 p-4">
+                            <h3>{{examinador.nome}}</h3>
+                            </br>
+                            <p><b>Telefone:</b> {{examinador.telefone}}</p>
+                            <p><b>Email:</b> {{examinador.email}}</p>
+                            <p><b>Observações:</b> {{examinador.observacoes}}</p>
+                        </div>
+                    </div>
+{% endblock %}

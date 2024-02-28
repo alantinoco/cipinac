@@ -17,6 +17,15 @@
                             <h3 class="text-center">Cadastro de questão</h3>
                             <form action="." method="post" enctype="multipart/form-data">{% csrf_token %}
 
+                            {% if messages %}
+                            {% for message in messages %}
+                                <div class="alert alert-primary" role="alert">
+                                    {{message}}
+                                </div>
+                            {% endfor %}
+                            {% endif %}
+
+
                                 <div class="form-floating mb-3">
                                     {% render_field form.enunciado class="form-control"  type="textarea" rows="4" cols="50" %}
                                     <label for="floatingInput">Enunciado</label>
@@ -28,7 +37,7 @@
                                 </div>
 
                                 <div class="form-floating mb-3">
-                                    {% render_field form.nível class="form-control"  type="text" %}
+                                    {% render_field form.nivel class="form-control"  type="text" %}
                                     <label for="floatingInput">Nível</label>
                                 </div>
 
@@ -50,6 +59,11 @@
                                 <div class="form-floating mb-3">
                                     {% render_field form.d class="form-control"  type="text" %}
                                     <label for="floatingInput">Letra D</label>
+                                </div>
+
+                                <div class="form-floating mb-3">
+                                    {% render_field form.resposta_correta class="form-control"  type="text" %}
+                                    <label for="floatingInput">Resposta correta</label>
                                 </div>
 
                                 <button type="submit" class="btn btn-primary">Cadastrar</button>

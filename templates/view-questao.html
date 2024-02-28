@@ -29,6 +29,7 @@
                             <th>Enunciado</th>
                             <th></th>
                             <th></th>
+                            <th></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -44,11 +45,19 @@
                                         {{questao.enunciado}}
                                     </a>
                                 </td>
+
+                            <td>
+                                <a href="{% url 'visualizar_questao' questao.id %}">
+                                    <input type="submit" class="btn btn-outline-success btn-sm" value="Visualizar">
+                                </a>
+                            </td>
+
                             <td>
                                 <a href="{% url 'update_questao' questao.id %}">
                                     <input type="submit" class="btn btn-outline-primary btn-sm" value="Editar">
                                 </a>
                             </td>
+
                             <td>
                                 <a href="{% url 'delete_questao' questao.id %}">
                                     <input type="submit" class="btn btn-outline-danger btn-sm" value="Deletar">

@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% load widget_tweaks %}
+
+{% load static %}
+
+
+
+{% block title %}
+    CIPINAC - Deletar Examinador
+{% endblock %}
+
+
+{% block content %}
+
+
+<div class="container-fluid pt-4 px-4">
+    <div class="pcoded-content text-center">
+    <p>
+        Realmente deseja deletar o cadastro do examinador <b>"{{examinador.nome}}"</b>?
+    </p><br>
+    <form action="{% url 'delete_examinador' examinador.id %}" method="POST">
+            {% csrf_token %}
+            <a href="{% url 'index' %}" class="btn btn-warning btn-sm" >Voltar</a>
+            <input type="submit" value="Excluir" class="btn btn-danger btn-sm">
+    </form>
+    </div>
+</div>
+
+
+{% endblock %}

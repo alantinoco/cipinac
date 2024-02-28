@@ -43,25 +43,23 @@
                                 </a>
                             </td>
                                 <td>
-                                    <a href="">
-                                        {{certificado.titulo_do_certificado}}
-                                    </a>
+                                    {{certificado.titulo_do_certificado}}
                                 </td>
-                            <td>{{certificado.cpf}}</td>
+                            <td>{{certificado.CPF}}</td>
                             <td>{{certificado.validade}}</td>
                             <td>{{certificado.identificador}}</td>
                             <td>
-                                <a href="">
+                                <a href="{% url 'visualizar_certificado' certificado.id %}">
                                     <input type="submit" class="btn btn-outline-success btn-sm" value="Visualizar">
                                 </a>
                             </td>
                             <td>
-                                <a href="">
+                                <a href="{% url 'update_certificado' certificado.id %}">
                                     <input type="submit" class="btn btn-outline-primary btn-sm" value="Editar">
                                 </a>
                             </td>
                             <td>
-                                <a href="">
+                                <a href="{% url 'delete_certificado' certificado.id %}">
                                     <input type="submit" class="btn btn-outline-danger btn-sm" value="Deletar">
                                 </a>
                             </td>

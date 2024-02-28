@@ -32,6 +32,7 @@
                             <th>e-mail</th>
                             <th></th>
                             <th></th>
+                            <th></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -50,6 +51,11 @@
                             <td>{{empresa.cnpj}}</td>
                             <td>{{empresa.telefone}}</td>
                             <td>{{empresa.email}}</td>
+                            <td>
+                                <a href="{% url 'visualizar_empresa' empresa.id %}">
+                                    <input type="submit" class="btn btn-outline-success btn-sm" value="Visualizar">
+                                </a>
+                            </td>
                             <td>
                                 <a href="{% url 'update_empresa' empresa.id %}">
                                     <input type="submit" class="btn btn-outline-primary btn-sm" value="Editar">

@@ -54,12 +54,23 @@
 
                                 <h4 class="text-primary">Fale conosco</h4>
 
-                            <h4></h4>
+
+
+
                         </div>
 
 
-                        <form action="." method="POST"> {% csrf_token %}
+                        <form action="." method="POST">
+                        {% csrf_token %}
 
+
+                                {% if messages %}
+                                {% for message in messages %}
+                                <div class="alert alert-primary" role="alert">
+                                    {{message}}
+                                </div>
+                                {% endfor %}
+                                {% endif %}
 
                          <div class="form-floating mb-3">
                             {% render_field form.tipo class="form-control"  type="text" %}

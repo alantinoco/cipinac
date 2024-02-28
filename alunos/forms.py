@@ -1,14 +1,9 @@
 from django import forms
-from .models import Empresa, Candidato, Questao, Solicitacao, Certificado, Turma
+from .models import Empresa, Candidato, Questao, Solicitacao, Certificado, Examinador, Exame
 
 class EmpresaForm(forms.ModelForm):
     class Meta:
         model = Empresa
-        fields = '__all__'
-
-class TurmaForm(forms.ModelForm):
-    class Meta:
-        model = Turma
         fields = '__all__'
 
 class CandidatoForm(forms.ModelForm):
@@ -29,4 +24,14 @@ class SolicitacaoForm(forms.ModelForm):
 class CertificadoForm(forms.ModelForm):
     class Meta:
         model = Certificado
+        fields = '__all__'
+
+class ExaminadorForm(forms.ModelForm):
+    class Meta:
+        model = Examinador
+        fields = '__all__'
+
+class ExameForm(forms.ModelForm):
+    class Meta:
+        model = Exame
         fields = '__all__'

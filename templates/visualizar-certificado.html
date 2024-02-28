@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% load widget_tweaks %}
+
+
+{% block title %}
+    CIPINAC - Certificado
+{% endblock %}
+
+
+{% block content %}
+                    <div class="container-fluid pt-4 px-4 text-center">
+                        <div class="bg-light rounded h-100 p-4">
+                            <h3>{{certificado.nome}}</h3>
+                            <p><b>CPF</b> {{certificado.CPF}}</p>
+                            </br>
+                            <p><b>Certificado:</b> {{certificado.titulo_do_certificado}}</p>
+                            <p><b>Validade:</b> {{certificado.validade}}</p>
+                            <p><b>Identificador:</b> {{certificado.identificador}}</p>
+                        </div>
+                    </div>
+{% endblock %}

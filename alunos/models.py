@@ -25,16 +25,36 @@ class Examinador(models.Model):
         return self.nome
 
 
+class Exame(models.Model):
 
-class Turma(models.Model):
+    HORA =  (
+        ('08:00', '08:00'),
+        ('09:00', '09:00'),
+        ('10:00', '10:00'),
+        ('11:00', '11:00'),
+        ('12:00', '12:00'),
+        ('13:00', '13:00'),
+        ('14:00', '14:00'),
+        ('15:00', '15:00'),
+        ('16:00', '16:00'),
+        ('17:00', '17:00'),
+        ('18:00', '18:00'),
+        ('19:00', '19:00'),
+        ('20:00', '20:00'),
+
+    )
+
     nome_da_turma = models.CharField(max_length=50)
     titulo_do_certificado = models.CharField(max_length=100)
     empresa = models.ForeignKey(Empresa, null=True, blank=True, on_delete=models.SET_NULL)
+    examinador = models.ForeignKey(Examinador, null=True, blank=True, on_delete=models.SET_NULL)
     data_da_prova = models.DateField(null=False, blank=False)
-    horario = models.TimeField()
+    hora = models.CharField(max_length=10, choices=HORA)
 
     def __str__(self):
-        return self.data_da_prova + " " + self.titulo_do_certificado
+        return self.nome_da_turma
+
+
 
 class Candidato(models.Model):
 
@@ -81,7 +101,6 @@ class Candidato(models.Model):
 
     # Dados pessoais
     foto = models.ImageField(null=True, blank=True, upload_to='fotos/')
-    matricula = models.CharField(max_length=100, null=True, blank=True)
     nome = models.CharField(max_length=100)
     cpf = models.CharField(max_length=11, unique=True)
     sexo = models.CharField(max_length=10, choices=SEXO)
@@ -91,7 +110,7 @@ class Candidato(models.Model):
     orgao_emissor = models.CharField(max_length=15, null=True, blank=True)
     data_emissao = models.DateField(null=True, blank=True)
     empresa = models.ForeignKey(Empresa, null=True, blank=True, on_delete=models.SET_NULL)
-    turma = models.ForeignKey(Turma, null=True, blank=True, on_delete=models.SET_NULL)
+    turma = models.ForeignKey(Exame, null=True, blank=True, on_delete=models.SET_NULL)
 
     # Endereço
     logradouro = models.CharField(max_length=100)
@@ -135,6 +154,13 @@ class Questao(models.Model):
         ("Difícil", "Difícil"),
     )
 
+    CORRETA =  (
+        ("A", "A"),
+        ("B", "B"),
+        ("C", "C"),
+        ("D", "D"),
+    )
+
     enunciado = models.TextField()
     imagem = models.ImageField(null=True, blank=True, upload_to='imagens_questoes/')
     categoria = models.ForeignKey(Categoria_questao, null=True, blank=True, on_delete=models.SET_NULL)
@@ -143,6 +169,7 @@ class Questao(models.Model):
     b = models.CharField(max_length=100)
     c = models.CharField(max_length=100)
     d = models.CharField(max_length=100)
+    resposta_correta = models.CharField(max_length=50, choices=CORRETA)
 
     def __str__(self):
         return self.enunciado
@@ -157,12 +184,12 @@ class Solicitacao(models.Model):
     )
 
     tipo = models.CharField(max_length=20, choices=TIPO)
-    protocolo = models.CharField(max_length=100)
+    protocolo = models.CharField(max_length=100, null=True, blank=True)
     titulo = models.CharField(max_length=100)
     email = models.EmailField(max_length=50)
     telefone = models.CharField(max_length=11)
     texto = models.TextField()
-    anotacoes_cipinac = models.TextField()
+    anotacoes_cipinac = models.TextField(null=True, blank=True)
 
     def __str__(self):
         return self.titulo

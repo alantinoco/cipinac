@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% load widget_tweaks %}
+
+
+{% block title %}
+    CIPINAC - Turma
+{% endblock %}
+
+
+{% block content %}
+                    <div class="container-fluid pt-4 px-4 text-center">
+
+                        <div class="bg-light rounded h-100 p-4">
+                            <h2>{{turma.nome_da_turma}}</h2>
+                            </br>
+                            <p><b>Certificação:</b> {{turma.titulo_do_certificado}}</p>
+                            <p><b>Data:</b> {{turma.data_da_prova}} às {{turma.hora}}</p>
+                            <p><b>Examinador:</b> {{turma.examinador}}
+                            </br>
+                            <table class="table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nome do candidato</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for candidato in candidatos %}
+                        <tr>
+                            <td>
+                                <a href="{% url 'visualizar_candidato' candidato.id %}">
+                                    {{candidato.id}}
+                                </a>
+                            </td>
+                             <td>
+                                <a href="{% url 'visualizar_candidato' candidato.id %}">
+                                    {{candidato.nome}}
+                                </a>
+                            </td>
+                            <td>
+                                <a href="{% url 'update_candidato' candidato.id %}">
+                                    <input type="submit" class="btn btn-outline-danger btn-sm" value="Remover da Turma">
+                                </a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                        </div>
+
+
+
+                    </div>
+{% endblock %}

@@ -1,5 +1,5 @@
 import django_filters
-from .models import Candidato, Empresa, Questao, Solicitacao, Certificado, Turma
+from .models import Candidato, Empresa, Questao, Solicitacao, Certificado, Examinador, Exame
 
 class CandidatoFilter(django_filters.FilterSet):
     cpf = django_filters.CharFilter(lookup_expr='icontains')
@@ -16,12 +16,21 @@ class EmpresaFilter(django_filters.FilterSet):
         model = Empresa
         fields = ['cnpj',]
 
-class TurmaFilter(django_filters.FilterSet):
-    data_da_prova = django_filters.CharFilter(lookup_expr='icontains')
+
+class ExaminadorFilter(django_filters.FilterSet):
+    nome = django_filters.CharFilter(lookup_expr='icontains')
 
     class Meta:
-        model = Turma
-        fields = ['data_da_prova',]
+        model = Examinador
+        fields = ['nome',]
+
+
+class ExameFilter(django_filters.FilterSet):
+    nome_da_turma = django_filters.CharFilter(lookup_expr='icontains')
+
+    class Meta:
+        model = Exame
+        fields = ['nome_da_turma',]
 
 
 class QuestaoFilter(django_filters.FilterSet):
@@ -30,6 +39,7 @@ class QuestaoFilter(django_filters.FilterSet):
     class Meta:
         model = Questao
         fields = ['enunciado',]
+
 
 class SolicitacaoFilter(django_filters.FilterSet):
     id = django_filters.CharFilter(lookup_expr='icontains')

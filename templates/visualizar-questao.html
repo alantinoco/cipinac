@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% load widget_tweaks %}
+
+
+{% block title %}
+    CIPINAC - Questão
+{% endblock %}
+
+
+{% block content %}
+                    <div class="container-fluid pt-4 px-4 text-center">
+                        <div class="bg-light rounded h-100 p-4">
+                            <h3>{{questao.enunciado}}</h3>
+                            </br>
+                            <p><b>A:</b> {{questao.a}}</p>
+                            <p><b>B:</b> {{questao.b}}</p>
+                            <p><b>C:</b> {{questao.c}}</p>
+                            <p><b>D:</b> {{questao.d}}</p>
+                            <p><b>Resposta correta:</b> {{questao.resposta_correta}}</p>
+                        </div>
+                    </div>
+{% endblock %}

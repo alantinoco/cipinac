@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% load widget_tweaks %}
+
+
+{% block title %}
+    CIPINAC - Empresa
+{% endblock %}
+
+
+{% block content %}
+                    <div class="container-fluid pt-4 px-4 text-center">
+                        <div class="bg-light rounded h-100 p-4">
+                            <h2>{{empresa.nome_fantasia}}</h2>
+                            </br>
+                            <p><b>Razão social:</b> {{empresa.razao_social}}</p>
+                            <p><b>CNPJ:</b> {{empresa.cnpj}}</p>
+                            <p><b>E-mail:</b> {{empresa.email}}</p>
+                            <p><b>Telefone:</b> {{empresa.telefone}}</p>
+                            <p><b>Representante:</b> {{empresa.representante_legal}}</p>
+                            <p><b>CPF do RL:</b> {{empresa.cpf_representante_legal}}</p>
+                        </div>
+                    </div>
+{% endblock %}

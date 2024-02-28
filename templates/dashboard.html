@@ -57,28 +57,54 @@
                         <h6 class="mb-0">Próximas turmas</h6>
                     </div>
                     <div class="table-responsive">
-                        <table class="table text-start align-middle table-bordered table-hover mb-0">
-                            <thead>
-                                <tr class="text-dark">
-                                    <th scope="col">Empresa</th>
-                                    <th scope="col">Certificação</th>
-                                    <th scope="col">Data</th>
-                                    <th scope="col">Horário</th>
-                                    <th scope="col">Examinador</th>
-                                    <th scope="col">Ação</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>01 Jan 2045</td>
-                                    <td>01 Jan 2045</td>
-                                    <td>INV-0123</td>
-                                    <td>Jhon Doe</td>
-                                    <td>$123</td>
-                                    <td><a class="btn btn-sm btn-primary" href="">Visualizar</a></td>
-                                </tr>
-                            </tbody>
-                        </table>
+                        <table class="table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nome da Turma</th>
+                            <th>Certificação</th>
+                            <th>Empresa</th>
+                            <th>Data da Prova</th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for turma in turmas %}
+                        <tr>
+                            <td>
+                                <a href="">
+                                    {{turma.id}}
+                                </a>
+                            </td>
+                                <td>
+                                    <a href="">
+                                        {{turma.nome_da_turma}}
+                                    </a>
+                                </td>
+                            <td>{{turma.titulo_do_certificado}}</td>
+                            <td>{{turma.empresa}}</td>
+                            <td>{{turma.data_da_prova}}</td>
+                            <td>
+                                <a href="">
+                                    <input type="submit" class="btn btn-outline-success btn-sm" value="Visualizar">
+                                </a>
+                            </td>
+                            <td>
+                                <a href="">
+                                    <input type="submit" class="btn btn-outline-primary btn-sm" value="Editar">
+                                </a>
+                            </td>
+                            <td>
+                                <a href="">
+                                    <input type="submit" class="btn btn-outline-danger btn-sm" value="Deletar">
+                                </a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
                     </div>
                 </div>
             </div>
